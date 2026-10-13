@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qr-art-generator-studio"
+version = "0.4.2"
+description = "Pipeline/worker AI QR code art generator — turn payloads into scannable generative art."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "qr-art-generator-studio contributors" }]
+keywords = ["qr", "generative-art", "diffusion", "controlnet", "stable-diffusion", "python"]
+
+dependencies = [
+    "torch>=2.3",
+    "diffusers>=0.30",
+    "transformers>=4.42",
+    "pillow>=10.3",
+    "numpy>=1.26",
+    "qrcode>=7.4",
+    "opencv-python-headless>=4.9",
+    "pydantic>=2.7",
+    "typer>=0.12",
+    "rich>=13.7",
+    "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.5",
+    "black>=24.4",
+    "mypy>=1.10",
+]
+cuda = ["torch>=2.3", "xformers>=0.0.27"]
+
+[project.scripts]
+qrart = "qr_art_generator.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.black]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
