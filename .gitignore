@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions / native accel
+*.dll
+*.pyd
+*.dylib
+build/
+dist/
+*.egg-info/
+
+# Virtual envs
+.venv/
+venv/
+env/
+ENV/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Model + art caches (huge)
+models_cache/
+*.ckpt
+*.safetensors
+*.onnx
+output_gallery/
+qr_render_cache/
+*.qr.png
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local secrets / config
+.env
+config/local.toml
+secrets/
